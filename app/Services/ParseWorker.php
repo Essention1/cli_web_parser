@@ -7,7 +7,7 @@ use DOMXPath;
 
 class ParseWorker 
 {
-    public function getAttributesFromHtml($html, $tag)
+    public function getEntries($html, $tag)
     {
         $doc = new DOMDocument;
         @$doc->loadHTML($html);

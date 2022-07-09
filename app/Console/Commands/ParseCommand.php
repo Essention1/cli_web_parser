@@ -52,7 +52,7 @@ class ParseCommand extends Command
 
             $html = file_get_contents($link);
 
-            $entries = $this->parse->getAttributesFromHtml($html, 'a');
+            $entries = $this->parse->getEntries($html, 'a');
 
             $tag_a = array();
             foreach ($entries as $entry) {
@@ -63,7 +63,7 @@ class ParseCommand extends Command
             ]);
 
             //<img href> images
-            $entries = $this->parse->getAttributesFromHtml($html, 'img');
+            $entries = $this->parse->getEntries($html, 'img');
 
             $tag_img = array();
             foreach ($entries as $entry) {
@@ -74,7 +74,7 @@ class ParseCommand extends Command
             ]);
 
             //<script src> scripts
-            $entries = $this->parse->getAttributesFromHtml($html, 'script');
+            $entries = $this->parse->getEntries($html, 'script');
 
             $tag_script = array();
             foreach ($entries as $entry) {
@@ -85,7 +85,7 @@ class ParseCommand extends Command
             ]);
 
             //<link href> styles
-            $entries = $this->parse->getAttributesFromHtml($html, 'link');
+            $entries = $this->parse->getEntries($html, 'link');
 
             $tag_link = array();
             foreach ($entries as $entry) {

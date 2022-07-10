@@ -19,7 +19,7 @@ class ParseCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Command takes a link as an argument and returns "src/href" attributes of tags "a/img/script/link"';
 
     /**
      *

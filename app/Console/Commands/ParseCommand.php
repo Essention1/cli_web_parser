@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Services\ParseWorker;
 
-
 class ParseCommand extends Command
 {
     /**
@@ -56,7 +55,8 @@ class ParseCommand extends Command
 
             $tag_a = array();
             foreach ($entries as $entry) {
-                array_push($tag_a, $entry->getAttribute("href"));
+                if ($entry->getAttribute("href"))
+                    array_push($tag_a, $entry->getAttribute("href"));
             }
             array_push($output, [
                 'a' => $tag_a
@@ -67,7 +67,8 @@ class ParseCommand extends Command
 
             $tag_img = array();
             foreach ($entries as $entry) {
-                array_push($tag_img, $entry->getAttribute("href"));
+                if ($entry->getAttribute("href"))
+                    array_push($tag_img, $entry->getAttribute("href"));
             }
             array_push($output, [
                 'img' => $tag_img
@@ -78,7 +79,8 @@ class ParseCommand extends Command
 
             $tag_script = array();
             foreach ($entries as $entry) {
-                array_push($tag_script, $entry->getAttribute("src"));
+                if ($entry->getAttribute("src"))
+                    array_push($tag_script, $entry->getAttribute("src"));
             }
             array_push($output, [
                 'script' => $tag_script
@@ -89,7 +91,8 @@ class ParseCommand extends Command
 
             $tag_link = array();
             foreach ($entries as $entry) {
-                array_push($tag_link, $entry->getAttribute("href"));
+                if ($entry->getAttribute("href"))
+                    array_push($tag_link, $entry->getAttribute("href"));
             }
             array_push($output, [
                 'link' => $tag_link
